@@ -3,7 +3,7 @@ const Joi=require('joi');
 const bcrypt=require('bcryptjs');
 
 
-const SignUp=async(req,res)=>{
+const SignUp=async(req,res,next)=>{
     const { username, email, password } = req.body
     const schema = Joi.object({
         username: Joi.string()
@@ -35,12 +35,12 @@ const SignUp=async(req,res)=>{
                 await user.save()
             res.status(200).json("successfully registered")
             } catch (error) {
-                res.status(500).json(error.message)
+                next(error)
             }
             //redirect('/login')
         }
     } catch (error) {
-        res.send("error happened").status(500)
+        next(error)
     }
 
 
