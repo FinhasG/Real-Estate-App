@@ -1,6 +1,7 @@
 const userSchema=require('../models/User')
 const Joi=require('joi');
 const bcrypt=require('bcryptjs');
+const {errorHandler}= require('../utils/error.js')
 
 
 const SignUp=async(req,res,next)=>{
@@ -40,7 +41,7 @@ const SignUp=async(req,res,next)=>{
             //redirect('/login')
         }
     } catch (error) {
-        next(error)
+        next (error);
     }
 
 
