@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import {Link, useNavigate} from 'react-router-dom';
 
 const SignUp = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [formData, setFormData]=useState({});
   const [error, setError]=useState(null);
   const [loading, setLoading]=useState(false);
@@ -79,7 +76,7 @@ const SignUp = () => {
           {loading?'loading...':'Sign Up'}
         </button>
       </form>
-      <div className="flex gap-3 mt-3">
+      <div className="flex gap-3 mt-3 ml-3">
         <p>Have an account ?</p>
         <Link to={'/login'}>
         <span className="text-blue-600">Login</span>
