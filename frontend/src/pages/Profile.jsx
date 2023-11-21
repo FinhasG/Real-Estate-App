@@ -3,8 +3,6 @@ import { useSelector } from "react-redux";
 import {app} from '../firebase'
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 
-//request.resource.contentType.matches('image/.*')
-
 const Profile = () => {
   const { currentUser } = useSelector((state) => state.user);
   const fileRef = useRef(null);
@@ -12,8 +10,6 @@ const Profile = () => {
   const [filePercent, setFilePercent]=useState(0);
   const [fileUploadError, setFileUploadError]=useState(false);
   const [formData, setFormData]=useState({});
-  console.log(filePercent)
-  console.log(fileUploadError)
 
   useEffect(()=>{
     handleFileUpload(file)
